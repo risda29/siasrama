@@ -18,40 +18,64 @@ class Login extends Controller
         return view('auth.login');
     }
 
+    // public function login(Request $request)
+    // {
+    //     $request->validate([
+    //         'email' => 'required',
+    //         'password' => 'required'
+    //     ], [
+    //         'email.required' => 'email Wajib Diisi!!',
+    //         'password.required' => 'Password Wajib Diisi!!',
+    //     ]);
+
+    //     $infologin = [
+    //         'email' => $request->email,
+    //         'password' => $request->password,
+    //     ];
+
+    //     // $pengguna = M_Data_Pengguna::where('email', $request->email)->first();
+
+    //     // if ($pengguna && password_verify($request->password, $pengguna->password)) {
+    //     //     return redirect('/dashboard');
+    //     // } else {
+    //     //     return redirect('/login')->withErrors('email dan password yang dimasukkan tidak sesuai')->withInput();
+    //     // }
+
+    //     if (Auth::attempt($infologin)) {
+    //         if (Auth::user()->level == 'Admin') {
+    //             return redirect('/level/admin');
+    //         } elseif (Auth::user()->level == 'Kepala Yayasan') {
+    //             return redirect('/level/kepala');
+    //         } elseif (Auth::user()->level == 'Santri') {
+    //             return redirect('/level/santri');
+    //         } else {
+    //             return redirect('/login')->withErrors('Username dan password yang dimasukkan tidak sesuai')->withInput();
+    //         }
+    //     }
+    // }
+
     public function login(Request $request)
     {
         $request->validate([
-            'email' => 'required',
-            'password' => 'required'
-        ], [
-            'email.required' => 'email Wajib Diisi!!',
-            'password.required' => 'Password Wajib Diisi!!',
+            'email' => 'required|email',
+            'password' => 'required',
         ]);
 
-        $infologin = [
-            'email' => $request->email,
-            'password' => $request->password,
-        ];
+        $credentials = $request->only('email', 'password');
 
-        // $pengguna = M_Data_Pengguna::where('email', $request->email)->first();
+        if (Auth::attempt($credentials)) {
+            $user = Auth::user();
 
-        // if ($pengguna && password_verify($request->password, $pengguna->password)) {
-        //     return redirect('/dashboard');
-        // } else {
-        //     return redirect('/login')->withErrors('email dan password yang dimasukkan tidak sesuai')->withInput();
-        // }
-
-        if (Auth::attempt($infologin)) {
-            if (Auth::user()->level == 'Admin') {
+            if ($user->level === 'Admin') {
                 return redirect('/level/admin');
-            } elseif (Auth::user()->level == 'Kepala Yayasan') {
+            } elseif ($user->level === 'Kepala Yayasan') {
                 return redirect('/level/kepala');
-            } elseif (Auth::user()->level == 'Santri') {
+            } elseif ($user->level === 'Santri') {
                 return redirect('/level/santri');
-            } else {
-                return redirect('/login')->withErrors('Username dan password yang dimasukkan tidak sesuai')->withInput();
             }
         }
+
+        return back()->withErrors('Login gagal, periksa kembali email dan password!');
     }
 
     // if (Auth::attempt($infologin)) {
@@ -71,7 +95,7 @@ class Login extends Controller
     {
         return view('admin.dashboard');
     }
-    
+
     function dashboard()
     {
         return view('admin.dashboard');
@@ -158,7 +182,7 @@ class Login extends Controller
             'password' => password_hash($request->email, PASSWORD_DEFAULT),
             'level' => 'Santri',
         ]);
-        
+
         $request->validate([
             'nm_santri' => 'required',
             'nisn' => 'required',
@@ -185,7 +209,7 @@ class Login extends Controller
             'email' => $request->email,
             'user_id' => $request->nisn,
         ]);
-       
+
 
         return redirect('login')->with('success', 'Berhasil membuat akun.');
     }

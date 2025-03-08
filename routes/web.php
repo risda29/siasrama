@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Middleware\UserAkses;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Dashboard;
 use App\Http\Controllers\Home;
@@ -16,23 +17,51 @@ use App\Http\Controllers\Pengguna\Data_pengguna_santri;
 
 //loginnn
 
+//dd(app(\Illuminate\Routing\Router::class)->getMiddleware());
+//dd(app(\App\Http\Middleware\UserAkses::class)); // ini yang kita mau tes
 
 
 Route::middleware(['guest'])->group(function () {
     Route::get('/login', [Login::class, 'index']);
     Route::post('/login', [Login::class, 'login'])->name('login');
 });
+
 Route::get('/home', function () {
     return redirect('/');
 });
 
 Route::middleware(['auth'])->group(function () {
-    route::get('/level', [Login::class, 'index']);
-    route::get('/level/admin', [Login::class, 'dashboard_admin'])->middleware('userAkses:Admin');
-    route::get('/level/kepala', [Login::class, 'dashboard_kepala'])->middleware('userAkses:Kepala Yayasan');
-    route::get('/level/santri', [Login::class, 'dashboard_santri'])->middleware('userAkses:Santri');
+    Route::get('/level/admin', [Login::class, 'dashboard_admin'])
+        ->middleware('userAkses:Admin');
+
+    Route::get('/level/kepala', [Login::class, 'dashboard_kepala'])
+        ->middleware('userAkses:Kepala Yayasan');
+
+    Route::get('/level/santri', [Login::class, 'dashboard_santri'])
+        ->middleware('userAkses:Santri');
+
     Route::get('/logout', [Login::class, 'logout']);
 });
+
+// Route::middleware(['guest'])->group(function () {
+//     Route::get('/login', [Login::class, 'index']);
+//     Route::post('/login', [Login::class, 'login'])->name('login');
+// });
+
+// Route::get('/home', function () {
+//     return redirect('/');
+// });
+
+// Route::middleware(['auth'])->group(function () {
+//     Route::get('/level', [Login::class, 'index']);
+//     Route::get('/level/admin', [Login::class, 'dashboard_admin'])->middleware('userAkses:Admin');
+//     Route::get('/level/kepala', [Login::class, 'dashboard_kepala'])->middleware('userAkses:Kepala Yayasan');
+//     Route::get('/level/santri', [Login::class, 'dashboard_santri'])->middleware('userAkses:Santri');
+//     Route::get('/logout', [Login::class, 'logout']);
+// });
+
+
+
 
 
 //registerrreeeeeeeeeeeeeeeeeee

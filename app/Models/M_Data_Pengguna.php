@@ -2,14 +2,14 @@
 
 namespace App\Models;
 
+use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Database\Eloquent\Model;
 
-class M_Data_Pengguna extends Model
+class M_Data_Pengguna extends Authenticatable
 {
     use HasFactory;
 
-    protected $table = 'users';
+    protected $table = 'users'; // Sesuai tabel kamu tadi
     protected $primaryKey = 'id';
 
     protected $fillable = [
@@ -20,8 +20,7 @@ class M_Data_Pengguna extends Model
         'level',
         'pegawai_id',
         'santri_id',
-        
     ];
 
-    public $timestamps = false;
+    public $timestamps = false; // Kalau tabel gak ada created_at dan updated_at
 }
