@@ -128,8 +128,8 @@
         </a>
       </li><!-- End Dashboard Nav -->
 
-      {{-- @if (Auth::check() &&
-   (Auth::user()->level == 'Admin' || Auth::user()->level == 'Kepala Yayasan')) --}}
+      @if (Auth::check() &&
+   (Auth::user()->level == 'Admin' || Auth::user()->level == 'Kepala Yayasan'))
       <li class="nav-item">
         <a class="nav-link collapsed" href="{{ url('/data-santri') }}">
           <i class="bi bi-journal-text"></i><span>Data Santri/i</span>
@@ -147,8 +147,8 @@
           <i class="bi bi-person-badge"></i><span>Data Pegawai</span>
         </a>
       </li><!-- End Tables Nav -->
-     
-      
+     @endif
+      @if(auth()->check() && auth()->user()->level === 'Admin')
       <li class="nav-item">
         <a class="nav-link collapsed" href="{{ url('/data-pengguna') }}">
           <i class="bi bi-person"></i><span>Data Pengguna</span>
@@ -162,7 +162,7 @@
           <span>Profile</span>
         </a>
       </li><!-- End Profile Page Nav -->
-      {{-- @endif --}}
+      @endif
 
       <li class="nav-item">
         <a class="nav-link collapsed" data-bs-target="#charts-nav" data-bs-toggle="collapse" href="#">
@@ -183,12 +183,7 @@
         </ul>
       </li><!-- End Charts Nav -->
 
-      <li class="nav-item">
-        <a class="nav-link collapsed" href="pages-register.html">
-          <i class="bi bi-card-list"></i>
-          <span>Register</span>
-        </a>
-      </li><!-- End Register Page Nav -->
+     
 
       <li class="nav-item">
         <a class="nav-link collapsed" href="/logout">

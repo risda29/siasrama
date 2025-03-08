@@ -144,12 +144,12 @@
                                             <input type="text" class="form-control" id="username" name="username" value="{{ $item->username }}" required>
                                         </div>
                                         <div class="mb-3">
-                                            <label for="nik" class="form-label">NIK</label>
-                                            <input type="number" class="form-control" id="nik" name="nik" value="{{ $item->nik}}" required>
-                                        </div>
-                                        <div class="mb-3">
                                             <label for="email" class="form-label">Email</label>
                                             <input type="text" class="form-control" id="email" name="email" value="{{ $item->email}}" required>
+                                        </div>
+                                        <div class="mb-3">
+                                            <label for="password" class="form-label">Password</label>
+                                            <input type="text" class="form-control" id="password" name="password" value="{{ $item->password}}" required>
                                         </div>
                                         <div class="form-group row">
                                             <label for="level" class="col-sm-3 required">Level</label>
@@ -158,7 +158,7 @@
                                                     <option value="">-Pilih-</option>
                                                     <option value="Admin" {{ $item->level == 'Admin' ? 'selected' : '' }}>Admin</option>
                                                     <option value="Kepala Yayasan" {{ $item->level == 'Kepala Yayasan' ? 'selected' : '' }}>Kepala Yayasan</option>
-                                                    <option value="Santri" {{ $item->level == 'Santri' ? 'selected' : '' }}>Pengguna</option>
+                                                    <option value="Santri" {{ $item->level == 'Santri' ? 'selected' : '' }}>Santri</option>
                                                 </select>
                                             </div>
                                         </div>

@@ -12,7 +12,7 @@ class M_Data_Ruangan extends Model
     protected $table = 'data_ruangan';
     protected $primaryKey= 'id_ruangan';
 
-    protected $fillable = ['nm_ruangan','nm_pembimbing'];
+    protected $fillable = ['nm_ruangan','pegawai_id'];
 
     public $timestamps = false;
 }

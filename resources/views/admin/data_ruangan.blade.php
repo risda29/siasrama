@@ -63,7 +63,13 @@
                                     <tr>
                                         <td>{{ $no + 1 }}</td>
                                         <td>{{ $item->nm_ruangan }}</td>
-                                        <td>{{ $item->nm_pembimbing }}</td>
+                                        <td>
+                                            @php
+                                                // Cari nama santri berdasarkan santri_id di data_tagihan
+                                                $pegawai = $data_pegawai->where('id_pegawai', $item->pegawai_id)->first();
+                                            @endphp
+                                            {{ $pegawai ? $pegawai->nama : 'Tidak Diketahui' }}
+                                        </td>
                                         <td>
                                            {{-- Editttttttttt --}}
                                            <a href="#" class="btn btn-warning btn-sm d-inline-block me-2" data-bs-toggle="modal" data-bs-target="#editRuanganModal{{ $item->id_ruangan }}">Edit</a>
@@ -97,11 +103,16 @@
                                         @csrf
                                         <div class="mb-3">
                                             <label for="nm_ruangan" class="form-label">Nama Ruangan</label>
-                                            <input type="text" class="form-control" id="kamar" name="kamar" required>
+                                            <input type="text" class="form-control" id="nm_ruangan" name="nm_ruangan" required>
                                         </div>
                                         <div class="mb-3">
-                                            <label for="nm_pembimbing" class="form-label"> Nama Pembimbing</label>
-                                            <input type="text" class="form-control" id="pembimbing" name="pembimbing" required>
+                                            <label for="pegawai_id" class="form-label">Pembimbing</label>
+                                            <select class="form-select" name="pegawai_id" id="pegawai_id" required>
+                                                <option value="">- Pilih Pembimbing -</option>
+                                                @foreach ($data_pegawai as $pegawai)
+                                                    <option value="{{ $pegawai->id_pegawai }}">{{ $pegawai->nama }}</option>
+                                                @endforeach
+                                            </select>
                                         </div>
                                         <button type="submit" class="btn btn-primary">Tambah</button>
                                     </form>
@@ -128,8 +139,13 @@
                                             <input type="text" class="form-control" id="nm_ruangan" name="nm_ruangan" value="{{ $item->nm_ruangan }}" required>
                                         </div>
                                         <div class="mb-3">
-                                            <label for="nm_pembimbing" class="form-label">Nama Pembimbing</label>
-                                            <input type="text" class="form-control" id="nm_pembimbing" name="nm_pembimbing" value="{{ $item->nm_pembimbing }}" required>
+                                            <label for="pegawai_id" class="form-label">Pembimbing</label>
+                                            <select class="form-select" name="pegawai_id" id="pegawai_id" required>
+                                                <option value="">- Pilih Pembimbing -</option>
+                                                @foreach ($data_pegawai as $pegawai)
+                                                    <option value="{{ $pegawai->id_pegawai }}">{{ $pegawai->nama }}</option>
+                                                @endforeach
+                                            </select>
                                         </div>
                                         <button type="submit" class="btn btn-primary">Simpan</button>
                                     </form>
