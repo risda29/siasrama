@@ -47,7 +47,8 @@
     <div class="d-flex align-items-center justify-content-between">
       <a href="index.html" class="logo d-flex align-items-center">
         <img src="{{ asset('/') }}niceadmin/assets/img/logo ikhlas beramal.png" alt="">
-        <span class="d-none d-lg-block">SI-ASRAMA DARUSSALIM</span>
+        {{-- <span class="d-none d-lg-block">SI-ASRAMA DARUSSALIM</span> --}}
+        <span style="font-size: 18px;">SI-Asrama Darussalim</span>
       </a>
       <i class="bi bi-list toggle-sidebar-btn"></i>
     </div><!-- End Logo -->

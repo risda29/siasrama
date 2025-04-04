@@ -190,50 +190,50 @@
                     @method('PUT')
                     <div class="mb-3">
                         <label for="nm_santri" class="form-label">Nama Santri</label>
-                        <input type="text" class="form-control" id="nm_santri" name="nm_santri" value="{{ $item->nm_santri }}" required>
+                        <input type="text" class="form-control" id="nm_santri" name="nm_santri" value="{{ $item->nm_santri }}" >
                     </div>
                     <div class="mb-3">
                         <label for="tempat_lahir" class="form-label">Tempat Lahir</label>
-                        <input type="text" class="form-control" id="tempat_lahir" name="tempat_lahir" value="{{ $item->tempat_lahir }}" required>
+                        <input type="text" class="form-control" id="tempat_lahir" name="tempat_lahir" value="{{ $item->tempat_lahir }}" >
                     </div>
                     <div class="mb-3">
                         <label for="tanggal_lahir" class="form-label">Tanggal Lahir</label>
-                        <input type="date" class="form-control" id="tanggal_lahir" name="tanggal_lahir" value="{{ $item->tanggal_lahir }}" required>
+                        <input type="date" class="form-control" id="tanggal_lahir" name="tanggal_lahir" value="{{ $item->tanggal_lahir }}" >
                     </div>
                     <div class="mb-3">
                         <label for="jenis_kelamin" class="form-label">Jenis Kelamin</label>
-                        <select class="form-control" id="jenis_kelamin" name="jenis_kelamin" required>
+                        <select class="form-control" id="jenis_kelamin" name="jenis_kelamin" >
                             <option value="Laki-laki" {{ $item->jenis_kelamin == 'Laki-laki' ? 'selected' : '' }}>Laki-laki</option>
                             <option value="Perempuan" {{ $item->jenis_kelamin == 'Perempuan' ? 'selected' : '' }}>Perempuan</option>
                         </select>
                     </div>
                     <div class="mb-3">
                         <label for="alamat" class="form-label">Alamat</label>
-                        <textarea class="form-control" id="alamat" name="alamat" rows="3" required>{{ $item->alamat }}</textarea>
+                        <textarea class="form-control" id="alamat" name="alamat" rows="3" >{{ $item->alamat }}</textarea>
                     </div>
                     <div class="mb-3">
                         <label for="nama_ibu" class="form-label">Nama Ibu</label>
-                        <input type="text" class="form-control" id="nama_ibu" name="nama_ibu" value="{{ $item->nama_ibu }}" required>
+                        <input type="text" class="form-control" id="nama_ibu" name="nama_ibu" value="{{ $item->nama_ibu }}" >
                     </div>
                     <div class="mb-3">
                         <label for="nhp_ibu" class="form-label">No HP Ibu</label>
-                        <input type="text" class="form-control" id="nhp_ibu" name="nhp_ibu" value="{{ $item->nhp_ibu }}" required>
+                        <input type="text" class="form-control" id="nhp_ibu" name="nhp_ibu" value="{{ $item->nhp_ibu }}" >
                     </div>
                     <div class="mb-3">
                         <label for="nama_ayah" class="form-label">Nama Ayah</label>
-                        <input type="text" class="form-control" id="nama_ayah" name="nama_ayah" value="{{ $item->nama_ayah }}" required>
+                        <input type="text" class="form-control" id="nama_ayah" name="nama_ayah" value="{{ $item->nama_ayah }}" >
                     </div>
                     <div class="mb-3">
                         <label for="nhp_ayah" class="form-label">No HP Ayah</label>
-                        <input type="text" class="form-control" id="nhp_ayah" name="nhp_ayah" value="{{ $item->nhp_ayah }}" required>
+                        <input type="text" class="form-control" id="nhp_ayah" name="nhp_ayah" value="{{ $item->nhp_ayah }}" >
                     </div>
                     <div class="mb-3">
                         <label for="nama_wali" class="form-label">Nama Wali</label>
-                        <input type="text" class="form-control" id="nama_wali" name="nama_wali" value="{{ $item->nama_wali }}" required>
+                        <input type="text" class="form-control" id="nama_wali" name="nama_wali" value="{{ $item->nama_wali }}" >
                     </div>
                     <div class="mb-3">
                         <label for="nhp_wali" class="form-label">No HP Wali</label>
-                        <input type="text" class="form-control" id="nhp_wali" name="nhp_wali" value="{{ $item->nhp_wali }}" required>
+                        <input type="text" class="form-control" id="nhp_wali" name="nhp_wali" value="{{ $item->nhp_wali }}" >
                     </div>
                     <button type="submit" class="btn btn-primary">Edit</button>
                 </form>

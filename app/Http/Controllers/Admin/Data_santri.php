@@ -61,10 +61,6 @@ class Data_santri extends Controller
         ]);
 
 
-
-
-
-
         return redirect('data-santri')->with('success', 'Data berhasil ditambahkan.');
     }
 
@@ -74,17 +70,17 @@ class Data_santri extends Controller
     {
         // Validasi data input
         $request->validate([
-            'nm_santri' => 'required',
-            'tempat_lahir' => 'required',
-            'tanggal_lahir' => 'required',
-            'jenis_kelamin' => 'required',
-            'alamat' => 'required',
-            'nama_ibu' => 'required',
-            'nhp_ibu' => 'required',
-            'nama_ayah' => 'required',
-            'nhp_ayah' => 'required',
-            'nama_wali' => 'required',
-            'nhp_wali' => 'required',
+            'nm_santri' => '',
+            'tempat_lahir' => '',
+            'tanggal_lahir' => '',
+            'jenis_kelamin' => '',
+            'alamat' => '',
+            'nama_ibu' => '',
+            'nhp_ibu' => '',
+            'nama_ayah' => '',
+            'nhp_ayah' => '',
+            'nama_wali' => '',
+            'nhp_wali' => '',
         ]);
 
         // Cari data santri berdasarkan ID
@@ -109,10 +105,6 @@ class Data_santri extends Controller
         // Redirect dengan pesan sukses
         return redirect('data-santri')->with('success', 'Data berhasil diperbarui.');
     }
-
-
-
-
 
 
     public function destroy($id_santri)
