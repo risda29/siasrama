@@ -77,7 +77,6 @@ class Data_pengguna extends Controller
 
 
 
-
     public function pengguna_destroy($id)
     {
         $data_pengguna = M_Data_Pengguna::find($id);

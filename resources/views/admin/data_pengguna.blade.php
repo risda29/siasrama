@@ -149,7 +149,7 @@
                                         </div>
                                         <div class="mb-3">
                                             <label for="password" class="form-label">Password</label>
-                                            <input type="text" class="form-control" id="password" name="password" value="{{ $item->password}}" required>
+                                            <input type="text" class="form-control" id="password" name="password" required>
                                         </div>
                                         <div class="form-group row">
                                             <label for="level" class="col-sm-3 required">Level</label>

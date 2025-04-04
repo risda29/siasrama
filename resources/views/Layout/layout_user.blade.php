@@ -57,7 +57,8 @@
         <a href="index.html" class="logo d-flex align-items-center">
           <!-- Uncomment the line below if you also wish to use an image logo -->
            <img src="{{ asset('/') }}niceadmin/assets/img/logo ikhlas beramal.png" alt=""> 
-          <h1 class="sitename">SI-SPP ASRAMA</h1>
+          {{-- <h1 class="sitename">SI-Pondok Pesantren Darussalim</h1> --}}
+          <span style="font-size: 25px;"> SI-Pondok Pesantren Darussalim </span>
         </a>
 
         <nav id="navmenu" class="navmenu">
@@ -66,7 +67,8 @@
             <li><a href="/tentang-kami">Tentang Kami </a></li>
             <li><a href="/pencapaian">Pencapaian</a></li>
             <li>
-                <a class="btn btn-success getstarted scrollto" href="{{ url('/login') }}">Login</a>
+                {{-- <a class="btn btn-success getstarted scrollto" href="{{ url('/login') }}">Login</a> --}}
+                <a href="/login">Login</a></li>
             </li>
           </ul>
           <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>

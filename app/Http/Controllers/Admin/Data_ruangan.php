@@ -42,8 +42,8 @@ class Data_ruangan extends Controller
     public function update(Request $request, $id_ruangan)
     {
         $request->validate([
-            'nm_ruangan' => 'required',
-            'nm_pembimbing' => 'required',
+            'nm_ruangan' => '',
+            'nm_pembimbing' => '',
 
         ]);
 

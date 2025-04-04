@@ -10,10 +10,16 @@
         <div class="carousel-item active">
             <img src="{{ asset('/') }}greenuser/assets/img/hero-carousel/hero-carousel-1.jpg" alt="">
             <div class="carousel-container">
-                <h2>PONDOK PESANTREN DARUSSALIM BATI-BATI</h2>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore
+                <div style="display: flex; justify-content: center; align-items: center; height: 100vh; text-align: center;">
+                    <span style="font-size: 30px;">
+                        SISTEM INFORMASI <br>
+                        PENDAFTARAN ASRAMA PONDOK PESANTREN DARUSSALIM
+                    </span>
+                </div>
+                
+                {{-- <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore
                     et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-                    aliquip ex ea commodo consequat.</p>
+                    aliquip ex ea commodo consequat.</p> --}}
                 <a href="#featured-services" class="btn-get-started">Get Started</a>
             </div>
         </div><!-- End Carousel Item -->
@@ -79,51 +85,12 @@
                     </div><!-- End Info Item -->
 
                     <iframe
-                        src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d48389.78314118045!2d-74.006138!3d40.710059!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c25a22a3bda30d%3A0xb89d1fe6bc499443!2sDowntown%20Conference%20Center!5e0!3m2!1sen!2sus!4v1676961268712!5m2!1sen!2sus"
-                        frameborder="0" style="border:0; width: 100%; height: 270px;" allowfullscreen=""
-                        loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3981.9097385083414!2d114.69528778885497!3d-3.608129699999983!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2de691e8e4d9ccdf%3A0xb4abaf0af3732851!2sPP%20Darussalim!5e0!3m2!1sen!2sid!4v1743778075483!5m2!1sen!2sid" 
+                        width="1200" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>"
                 </div>
             </div>
 
-            <div class="col-lg-7">
-                <form action="forms/contact.php" method="post" class="php-email-form" data-aos="fade-up"
-                    data-aos-delay="200">
-                    <div class="row gy-4">
-
-                        <div class="col-md-6">
-                            <label for="name-field" class="pb-2">Your Name</label>
-                            <input type="text" name="name" id="name-field" class="form-control"
-                                required="">
-                        </div>
-
-                        <div class="col-md-6">
-                            <label for="email-field" class="pb-2">Your Email</label>
-                            <input type="email" class="form-control" name="email" id="email-field"
-                                required="">
-                        </div>
-
-                        <div class="col-md-12">
-                            <label for="subject-field" class="pb-2">Subject</label>
-                            <input type="text" class="form-control" name="subject" id="subject-field"
-                                required="">
-                        </div>
-
-                        <div class="col-md-12">
-                            <label for="message-field" class="pb-2">Message</label>
-                            <textarea class="form-control" name="message" rows="10" id="message-field" required=""></textarea>
-                        </div>
-
-                        <div class="col-md-12 text-center">
-                            <div class="loading">Loading</div>
-                            <div class="error-message"></div>
-                            <div class="sent-message">Your message has been sent. Thank you!</div>
-
-                            <button type="submit">Send Message</button>
-                        </div>
-
-                    </div>
-                </form>
-            </div><!-- End Contact Form -->
+         
 
         </div>
 

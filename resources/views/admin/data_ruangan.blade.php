@@ -54,7 +54,7 @@
                                     <tr>
                                         <th>No</th>
                                         <th>Kamar</th>
-                                        <th>Pembimbing</th>
+                                        <th>Pengurus</th>
                                         <th>Aksi</th>
                                     </tr>
                                 </thead>
@@ -73,7 +73,7 @@
                                         <td>
                                            {{-- Editttttttttt --}}
                                            <a href="#" class="btn btn-warning btn-sm d-inline-block me-2" data-bs-toggle="modal" data-bs-target="#editRuanganModal{{ $item->id_ruangan }}">Edit</a>
-                                           {{-- <a href="{{ url('data-ruangan' . $item->id_ruangan) }}" class="btn btn-warning btn-sm">Edit</a> --}}
+                                         
                                            
                                            {{-- hapusssssssssss --}}
                                            <form action="{{ url('ruangan_destroy'.$item->id_ruangan) }}" method="POST" style="display:inline;">
@@ -106,9 +106,9 @@
                                             <input type="text" class="form-control" id="nm_ruangan" name="nm_ruangan" required>
                                         </div>
                                         <div class="mb-3">
-                                            <label for="pegawai_id" class="form-label">Pembimbing</label>
+                                            <label for="pegawai_id" class="form-label">Pengurus</label>
                                             <select class="form-select" name="pegawai_id" id="pegawai_id" required>
-                                                <option value="">- Pilih Pembimbing -</option>
+                                                <option value="">- Pilih Pengurus -</option>
                                                 @foreach ($data_pegawai as $pegawai)
                                                     <option value="{{ $pegawai->id_pegawai }}">{{ $pegawai->nama }}</option>
                                                 @endforeach
@@ -136,12 +136,12 @@
                                         @method('PUT')
                                         <div class="mb-3">
                                             <label for="nm_ruangan" class="form-label">Nama Ruangan</label>
-                                            <input type="text" class="form-control" id="nm_ruangan" name="nm_ruangan" value="{{ $item->nm_ruangan }}" required>
+                                            <input type="text" class="form-control" id="nm_ruangan" name="nm_ruangan" value="{{ $item->nm_ruangan }}" >
                                         </div>
                                         <div class="mb-3">
-                                            <label for="pegawai_id" class="form-label">Pembimbing</label>
-                                            <select class="form-select" name="pegawai_id" id="pegawai_id" required>
-                                                <option value="">- Pilih Pembimbing -</option>
+                                            <label for="pegawai_id" class="form-label">Pengurus</label>
+                                            <select class="form-select" name="pegawai_id" id="pegawai_id" >
+                                                <option value="">- Pilih Pengurus -</option>
                                                 @foreach ($data_pegawai as $pegawai)
                                                     <option value="{{ $pegawai->id_pegawai }}">{{ $pegawai->nama }}</option>
                                                 @endforeach

@@ -23,7 +23,10 @@
             <div class="card">
                 <div class="card-body overflow-auto">
                     <h5 class="card-title"></h5>
-                   
+                     <!-- Tombol Tambah Data -->
+                     <div class="d-flex justify-content-end align-items-center mb-3" style="margin-right: 50px;">
+                        <a href="#" class="btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#tambahSantriModal">Tambah Data</a>
+                    </div>
 
                     <!-- Tabel Data Pegawaii -->
                     <div class="datatable-wrapper datatable-loading no-footer sortable searchable fixed-columns">
@@ -142,7 +145,7 @@
                         <input type="text" class="form-control" id="nama" name="nama" value="{{ $item->nama }}" required>
                     </div>
                     <div class="mb-3">
-                        <label for="nik" class="form-label">NIK/label>
+                        <label for="nik" class="form-label">NIK
                         <input type="text" class="form-control" id="nik" name="nik" value="{{ $item->nik }}" required>
                     </div>
                     <div class="mb-3">
