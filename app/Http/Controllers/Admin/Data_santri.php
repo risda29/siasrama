@@ -70,7 +70,7 @@ class Data_santri extends Controller
     {
         // Validasi data input
         $request->validate([
-            'nm_santri' => '',
+            'nm_santri' => 'required',
             'tempat_lahir' => '',
             'tanggal_lahir' => '',
             'jenis_kelamin' => '',
@@ -82,11 +82,11 @@ class Data_santri extends Controller
             'nama_wali' => '',
             'nhp_wali' => '',
         ]);
-
-        // Cari data santri berdasarkan ID
+    
+ 
         $data_santri = M_Data_Santri::findOrFail($id_santri);
-
-        // Update data santri
+    
+        
         $data_santri->update([
             'nm_santri' => $request->nm_santri,
             'tempat_lahir' => $request->tempat_lahir,
@@ -101,10 +101,15 @@ class Data_santri extends Controller
             'nama_wali' => $request->nama_wali,
             'nhp_wali' => $request->nhp_wali,
         ]);
-
-        // Redirect dengan pesan sukses
-        return redirect('data-santri')->with('success', 'Data berhasil diperbarui.');
+    
+       
+        M_Data_Pengguna::where('id', $data_santri->user_id)->update([
+            'username' => $request->nm_santri,
+        ]);
+    
+        return redirect('data-santri')->with('success', 'Data santri dan pengguna berhasil diperbarui.');
     }
+    
 
 
     public function destroy($id_santri)
@@ -112,10 +117,10 @@ class Data_santri extends Controller
         $data_santri = M_Data_Santri::find($id_santri);
     
         if ($data_santri) {
-            // Hapus data pengguna yang berkaitan
+            
             M_Data_Pengguna::where('id', $data_santri->user_id)->delete();
     
-            // Hapus data santri
+           
             $data_santri->delete();
     
             return redirect('data-santri')->with('success', 'Data santri dan pengguna berhasil dihapus.');
