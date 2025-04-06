@@ -110,12 +110,19 @@ class Data_santri extends Controller
     public function destroy($id_santri)
     {
         $data_santri = M_Data_Santri::find($id_santri);
-
+    
         if ($data_santri) {
+            // Hapus data pengguna yang berkaitan
+            M_Data_Pengguna::where('id', $data_santri->user_id)->delete();
+    
+            // Hapus data santri
             $data_santri->delete();
-            return redirect('data-santri')->with('success', 'Data berhasil dihapus.');
+    
+            return redirect('data-santri')->with('success', 'Data santri dan pengguna berhasil dihapus.');
         } else {
             return redirect('data-santri')->with('error', 'Data tidak ditemukan.');
         }
     }
+    
+    
 }
