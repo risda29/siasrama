@@ -98,7 +98,8 @@ Route::put('data-tagihan{id}', [Data_tagihan::class, 'update']);
 Route::get('/data-pengguna', [Data_pengguna::class, 'index']);
 Route::post('/data-pengguna', [Data_pengguna::class, 'store']);
 Route::delete('/pengguna_destroy{id}', [Data_pengguna::class, 'pengguna_destroy']);
-Route::put('/data-pengguna{id}', [Data_pengguna::class, 'update']);
+Route::put('data-pengguna/{id}', [Data_pengguna::class, 'update']);
+
 
 
 // Dataaaaaaaaaaaaaaaaaaaaa Penggawaiiiiiiiii 

@@ -68,7 +68,7 @@
                                         <td>{{ $item->level }}</td>
                                         <td>
                                            {{-- Editttttttttt --}}
-                                           <a href="#" class="btn btn-warning btn-sm d-inline-block me-2" data-bs-toggle="modal" data-bs-target="#editPenggunaModal{{ $item->id_pengguna }}">Edit</a>
+                                           <a href="#" class="btn btn-warning btn-sm d-inline-block me-2" data-bs-toggle="modal" data-bs-target="#editPenggunaModal{{ $item->id }}">Edit</a>
                                          
                                            
                                            {{-- hapusssssssssss --}}
@@ -128,31 +128,31 @@
 
                     <!-- Modal Edit -->
                     @foreach ($data_pengguna as $item)
-                    <div class="modal fade" id="editPenggunaModal{{ $item->id_pengguna}}" tabindex="-1" aria-labelledby="editPenggunaModalLabel{{ $item->id_pengguna}}" aria-hidden="true">
+                    <div class="modal fade" id="editPenggunaModal{{ $item->id}}" tabindex="-1" aria-labelledby="editPenggunaModalLabel{{ $item->id}}" aria-hidden="true">
                         <div class="modal-dialog">
                             <div class="modal-content">
                                 <div class="modal-header">
-                                    <h5 class="modal-title" id="editPenggunaModalLabel{{ $item->id_pengguna}}">Edit Data Pengguna</h5>
+                                    <h5 class="modal-title" id="editPenggunaModalLabel{{ $item->id}}">Edit Data Pengguna</h5>
                                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                 </div>
                                 <div class="modal-body">
-                                    <form action="{{ url('data-pengguna'.$item->id_pengguna) }}" method="POST" enctype="multipart/form-data">
+                                    <form action="{{ url('data-pengguna/'.$item->id ) }}" method="POST" enctype="multipart/form-data">
                                         @csrf
                                         @method('PUT')
                                         <div class="mb-3">
                                             <label for="username" class="form-label">Username</label>
-                                            <input type="text" class="form-control" id="username" name="username" value="{{ $item->username }}" required>
+                                            <input type="text" class="form-control" id="username" name="username" value="{{ $item->username }}" >
                                         </div>
                                         <div class="mb-3">
                                             <label for="email" class="form-label">Email</label>
-                                            <input type="text" class="form-control" id="email" name="email" value="{{ $item->email}}" required>
+                                            <input type="text" class="form-control" id="email" name="email" value="{{ $item->email}}" >
                                         </div>
                                         <div class="mb-3">
                                             <label for="password" class="form-label">Password</label>
-                                            <input type="text" class="form-control" id="password" name="password" required>
+                                            <input type="text" class="form-control" id="password" name="password" >
                                         </div>
                                         <div class="form-group row">
-                                            <label for="level" class="col-sm-3 required">Level</label>
+                                            <label for="level" class="col-sm-3 ">Level</label>
                                             <div class="col-sm-9">
                                                 <select class="form-control" name="level" id="level">
                                                     <option value="">-Pilih-</option>

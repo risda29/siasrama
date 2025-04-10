@@ -17,6 +17,7 @@ class Data_pengguna extends Controller
     function index()
     {
         $data_pengguna = M_Data_Pengguna::all();
+        // dd($data_pengguna);
 
         return view('admin.data_pengguna', compact('data_pengguna'));
     }
@@ -42,6 +43,7 @@ class Data_pengguna extends Controller
             'level' => $request->level,
 
         ]);
+        
 
         M_Data_Pegawai::create([
 
@@ -59,9 +61,9 @@ class Data_pengguna extends Controller
     public function update(Request $request, $id_pengguna)
     {
         $request->validate([
-            'username' => 'required',
-            'password' => 'required',
-            'email' => 'required',
+            'username' => '',
+            'password' => '',
+            'email' => '',
 
         ]);
 
@@ -72,7 +74,7 @@ class Data_pengguna extends Controller
             'password' => $request->password,
             'email' => $request->email,
         ]);
-        return redirect('data-pengguna')->with('success', 'Data berhasil diedit.');
+        return redirect('data-pengguna/')->with('success', 'Data berhasil diedit.');
     }
 
 
