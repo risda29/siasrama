@@ -31,8 +31,9 @@ class Data_tagihan extends Controller
     
         return view('admin.data_tagihan', compact('data_tagihan', 'data_santri'));
     }
-    
 
+    
+    
     public function store(Request $request)
     {
         $request->validate([
@@ -40,23 +41,31 @@ class Data_tagihan extends Controller
             'tahun' => 'required',
             'jumlah' => 'required|numeric',
         ]);
-
-        // Ambil semua santri dari database
+    
+         // Ambil semua santri dari database
         $santriList = M_Data_Santri::all();
-
+    
         foreach ($santriList as $santri) {
-            M_Data_Tagihan::create([
-                'santri_id' => $santri->id_santri,
-                'bulan' => $request->bulan,
-                'tahun' => $request->tahun,
-                'jumlah' => $request->jumlah,
-                'tgl_jatuh_tempo' => $request->tahun . '-' . $request->bulan . '-10',
-                'status' => 'belum_bayar', // Default status
-            ]);
+            $cek = M_Data_Tagihan::where('santri_id', $santri->id_santri)
+                ->where('bulan', $request->bulan)
+                ->where('tahun', $request->tahun)
+                ->exists();
+    
+            if (!$cek) {
+                M_Data_Tagihan::create([
+                    'santri_id' => $santri->id_santri,
+                    'bulan' => $request->bulan,
+                    'tahun' => $request->tahun,
+                    'jumlah' => $request->jumlah,
+                    'tgl_jatuh_tempo' => $request->tahun . '-' . $request->bulan . '-10',
+                    'status' => 'belum_bayar',
+                ]);
+            }
         }
-
-        return redirect('data-tagihan')->with('success', 'Tagihan untuk semua santri berhasil ditambahkan.');
+    
+        return redirect('data-tagihan')->with('success', 'Tagihan berhasil ditambahkan (kecuali yang sudah ada).');
     }
+    
 
 
 
@@ -90,5 +99,14 @@ class Data_tagihan extends Controller
 
 
 
-    public function tagihan_destroy($id_tagihan) {}
+    public function tagihan_destroy($id_tagihan) {
+        $data_tagihan = M_Data_Tagihan::find($id_tagihan);
+
+        if ($data_tagihan) {
+            $data_tagihan->delete();
+            return redirect('data-tagihan')->with('success', 'Data berhasil dihapus.');
+        } else {
+            return redirect('data-tagihan')->with('error', 'Data tidak ditemukan.');
+        }
+    }
 }

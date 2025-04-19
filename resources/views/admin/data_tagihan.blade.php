@@ -174,7 +174,7 @@
                                                 <input type="number" class="form-control" id="tahun" name="tahun"
                                                     value="{{ date('Y') }}" required>
                                             </div>
-                                            <div class="mb-3">
+                                            {{-- <div class="mb-3">
                                                 <label for="santri_id" class="form-label">Santri</label>
                                                 <select class="form-select" name="santri_id" id="santri_id" required>
                                                     <option value="">- Pilih Santri -</option>
@@ -183,7 +183,7 @@
                                                         </option>
                                                     @endforeach
                                                 </select>
-                                            </div>
+                                            </div> --}}
                                             <div class="mb-3">
                                                 <label for="jumlah" class="form-label">Jumlah</label>
                                                 <input type="number" class="form-control" id="jumlah" name="jumlah"

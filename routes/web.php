@@ -10,6 +10,7 @@ use App\Http\Controllers\Admin\Data_ruangan;
 use App\Http\Controllers\Admin\Data_pengguna;
 use App\Http\Controllers\Admin\Data_pegawai;
 use App\Http\Controllers\Admin\Data_tagihan;
+use App\Http\Controllers\Santri\Data_tagihan_santri;
 use App\Http\Controllers\Admin\Data_profile;
 use App\Http\Controllers\Pengguna\Data_pengguna_santri;
 
@@ -89,7 +90,8 @@ Route::put('data-ruangan{id}', [Data_ruangan::class, 'update']);
 //Dataa tagihann
 Route::get('data-tagihan', [Data_tagihan::class, 'index']);
 Route::post('data-tagihan', [Data_tagihan::class, 'store']);
-Route::delete('tagihan_destroy{id}', [Data_tagihan::class, 'ruangan_destroy']);
+// Route::delete('tagihan_destroy{id}', [Data_tagihan::class, 'ruangan_destroy']);
+Route::delete('tagihan_destroy{id}', [Data_tagihan::class, 'tagihan_destroy']);
 Route::put('data-tagihan{id}', [Data_tagihan::class, 'update']);
 
 
@@ -125,3 +127,8 @@ Route::put('data-profile/{id_profile}', [Data_profile::class, 'update']);
 
 //dashboarddddddddddddddd Penggunaaaaaaaaaaaaaaaaaaaaaaaaaaaa
 Route::get('dashboard-pengguna', [Dashboard::class, 'dashboard_pengguna']);
+
+
+//penggunaaaaaaaaaaaaaaaaaaaaaaaaaaaa tagihan asrmaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+
+Route::get('/tagihan', [Data_tagihan_santri::class, 'index'])->name('tagihan.index');
