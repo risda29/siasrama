@@ -171,12 +171,26 @@
           <i class="bi bi-chevron-down ms-auto"></i>
         </a>
         <ul id="charts-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
+              @if(auth()->check() && auth()->user()->level === 'Admin') 
+              {{-- admin dan kepala --}}
           <li>
             <a href="/data-tagihan">
               <i class="bi bi-circle"></i><span>Tagihan Asrama</span>
             </a>
           </li>
           <li>
+          @endif
+      {{-- endif --}}
+              @if(auth()->check() && auth()->user()->level === 'Santri') 
+            
+          <li>
+            <a href="/tagihan_santri">
+              <i class="bi bi-circle"></i><span>Tagihan Santri</span>
+            </a>
+          </li>
+          <li>
+     @endif
+     <li>
             <a href="/data-riwayat">
               <i class="bi bi-circle"></i><span>Riwayat Pembayaran</span>
             </a>

@@ -71,7 +71,8 @@ class Data_pengguna extends Controller
         $data_pengguna->update([
 
             'username' => $request->username,
-            'password' => $request->password,
+           // 'password' => $request->password,
+            'password' => password_hash($request->password, PASSWORD_DEFAULT),
             'email' => $request->email,
         ]);
         return redirect('data-pengguna/')->with('success', 'Data berhasil diedit.');

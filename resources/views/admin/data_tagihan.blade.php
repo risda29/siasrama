@@ -109,8 +109,8 @@
                                                 <td>{{ $item->tgl_jatuh_tempo }}</td>
                                                 <td>
                                                     {{-- Editttttttttt --}}
-                                                    <a href="#" class="btn btn-warning btn-sm" data-bs-toggle="modal"
-                                                        data-bs-target="#editTagihanModal{{ $item->id_tagihan }}">Edit</a>
+                                                    {{-- <a href="#" class="btn btn-warning btn-sm" data-bs-toggle="modal"
+                                                        data-bs-target="#editTagihanModal{{ $item->id_tagihan }}">Edit</a> --}}
 
                                                     {{-- hapusssssssssss --}}
                                                     <form action="{{ url('tagihan_destroy' . $item->id_tagihan) }}"

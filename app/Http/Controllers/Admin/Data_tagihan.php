@@ -12,7 +12,7 @@ use App\Models\M_Data_Tagihan;
 
 class Data_tagihan extends Controller
 {
-  
+
     public function index()
     {
         $user = auth()->user(); // Ambil user yang sedang login
@@ -109,4 +109,6 @@ class Data_tagihan extends Controller
             return redirect('data-tagihan')->with('error', 'Data tidak ditemukan.');
         }
     }
+
+  
 }

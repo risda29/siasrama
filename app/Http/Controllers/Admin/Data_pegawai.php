@@ -18,28 +18,45 @@ class Data_pegawai extends Controller
     }
 
 
-    public function store(Request $request)
-    {
-        $request->validate([
-            'nama' => 'required',
-            'nik' => 'required',
-            'no_hp' => 'required',
-            'alamat' => 'required',
-            'jabatan' => 'required',
+    // public function store(Request $request)
+    // {
+    //     $nik = $request->input('nik');
+
+    //     M_Data_Pengguna::create([
+    //         'id' => $nik,
+    //         'username' => $request->input('nama'),
+    //         'email' => $request->input('email'),
+    //         'password' => password_hash($request->email, PASSWORD_DEFAULT),
+    //         'level' => 'Kepala',
+    //     ]);
+
+    //     $request->validate([
+    //         'nm_santri' => 'required',
+    //         'nisn' => 'required',
+    //         'email' => 'required',
+    //     ]);
+
+
+    //     $request->validate([
+    //         'nama' => 'required',
+    //         'nik' => 'required',
+    //         'no_hp' => 'required',
+    //         'alamat' => 'required',
+    //         'jabatan' => 'required',
            
-        ]);
+    //     ]);
 
-        M_Data_Pegawai::create([
+    //     M_Data_Pegawai::create([
             
-            'nama' =>$request->nama,
-            'nik' =>$request->nik,
-            'no_hp' =>$request->no_hp,
-            'alamat' =>$request->alamat,
-            'jabatan' =>$request->jabatan,
-        ]);
-        return redirect('data-pegawai')->with('success', 'Data berhasil ditambahkan.');
+    //         'nama' =>$request->nama,
+    //         'nik' =>$request->nik,
+    //         'no_hp' =>$request->no_hp,
+    //         'alamat' =>$request->alamat,
+    //         'jabatan' =>$request->jabatan,
+    //     ]);
+    //     return redirect('data-pegawai')->with('success', 'Data berhasil ditambahkan.');
 
-    }
+    // }
 
 
 public function update(Request $request, $id_pegawai){

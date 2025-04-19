@@ -190,7 +190,7 @@
                     @method('PUT')
                     <div class="mb-3">
                         <label for="nm_santri" class="form-label">Nama Santri</label>
-                        <input type="text" class="form-control" id="nm_santri" name="nm_santri" value="{{ $item->nm_santri }}" >
+                        <input type="text" class="form-control" id="nm_santri" name="nm_santri" value="{{ $item->nm_santri }}" readonly >
                     </div>
                     <div class="mb-3">
                         <label for="tempat_lahir" class="form-label">Tempat Lahir</label>

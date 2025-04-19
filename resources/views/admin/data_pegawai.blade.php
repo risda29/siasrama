@@ -24,9 +24,9 @@
                 <div class="card-body overflow-auto">
                     <h5 class="card-title"></h5>
                      <!-- Tombol Tambah Data -->
-                     <div class="d-flex justify-content-end align-items-center mb-3" style="margin-right: 50px;">
+                     {{-- <div class="d-flex justify-content-end align-items-center mb-3" style="margin-right: 50px;">
                         <a href="#" class="btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#tambahSantriModal">Tambah Data</a>
-                    </div>
+                    </div> --}}
 
                     <!-- Tabel Data Pegawaii -->
                     <div class="datatable-wrapper datatable-loading no-footer sortable searchable fixed-columns">
@@ -116,10 +116,10 @@
                         <label for="alamat" class="form-label">Alamat</label>
                         <textarea class="form-control" id="alamat" name="alamat" rows="3" required></textarea>
                     </div>
-                    <div class="mb-3">
+                    {{-- <div class="mb-3">
                         <label for="jabatan" class="form-label">Jabatan</label>
                         <input type="text" class="form-control" id="jabatan" name="jabatan" required>
-                    </div>
+                    </div> --}}
                     <button type="submit" class="btn btn-primary">Tambah</button>
                 </form>
             </div>

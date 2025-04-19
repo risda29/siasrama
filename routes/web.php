@@ -131,4 +131,4 @@ Route::get('dashboard-pengguna', [Dashboard::class, 'dashboard_pengguna']);
 
 //penggunaaaaaaaaaaaaaaaaaaaaaaaaaaaa tagihan asrmaaaaaaaaaaaaaaaaaaaaaaaaaaaa
 
-Route::get('/tagihan', [Data_tagihan_santri::class, 'index'])->name('tagihan.index');
+Route::get('/tagihan_santri', [Data_tagihan_santri::class, 'index'])->name('tagihan_santri');

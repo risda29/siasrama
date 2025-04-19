@@ -22,4 +22,10 @@ class M_Data_Tagihan extends Model
     ];
 
     public $timestamps = false;
+
+    public function santri()
+{
+    return $this->belongsTo(M_Data_Santri::class, 'santri_id', 'id_santri');
+}
+
 }

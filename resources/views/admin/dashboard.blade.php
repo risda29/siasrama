@@ -1,5 +1,5 @@
 @extends('layout.layout_admin')
-@section('title', 'Dashboard-Admin')
+@section('title', 'Dashboard')
 @section('content')
 
   <section class="section dashboard">
